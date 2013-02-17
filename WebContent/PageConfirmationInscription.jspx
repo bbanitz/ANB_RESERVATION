@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<jsp:root version="1.2" 
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+   xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ice="http://www.icesoft.com/icefaces/component">
+<jsp:directive.page contentType="text/html;charset=utf-8" />
+<f:view>
+  <ice:outputDeclaration doctypeRoot="HTML" doctypePublic="-//W3C//DTD HTML 4.01 Transitional//EN" doctypeSystem="http://www.w3.org/TR/html4/loose.dtd"/>
+  <html>
+    <head>
+     <title>"Confirmation de l'inscription"</title>
+     <ice:outputStyle href="./xmlhttp/css/rime/rime.css" />
+    </head>
+    		<body style="background-image: url(resources/vert_fonce_037.jpg)">
+		<jsp:directive.include file="EnteteAN.jspf" />
+		<div align="center"><ice:outputText
+			style="color: Yellow; font-size: 22px; font-family: Verdana, Arial, Sans-Serif; font-weight: bold"
+			value="Confirmation inscription" />
+		</div>
+
+
+     <ice:outputText escape="false" value="#{sessionBean1.membreEnCoursString}" />
+     <ice:form>
+			<ice:commandButton value="validation" action="#{pageConfirmation.Validation_action}"></ice:commandButton>
+			<ice:commandButton value="modification" action="modification"></ice:commandButton>
+			<ice:commandButton value="Annulation" action="annulation"></ice:commandButton>
+			<ice:messages />
+
+     </ice:form>
+
+    </body>
+  </html>
+</f:view>
+</jsp:root>

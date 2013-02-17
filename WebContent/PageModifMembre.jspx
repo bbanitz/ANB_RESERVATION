@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : PageModifMembre
+    Created on : 27 janv. 2009, 09:21:15
+    Author     : bbernard
+-->
+<jsp:root version="2.1" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ice="http://www.icesoft.com/icefaces/component" xmlns:jsp="http://java.sun.com/JSP/Page">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>
+    <f:view>
+        <html id="outputHtml1">
+            <head id="outputHead1">
+                <ice:outputStyle href="./resources/stylesheet.css" id="outputStyle1"/>
+                <ice:outputStyle href="./xmlhttp/css/xp/xp.css" id="outputStyle2"/>
+            </head>
+            <body id="outputBody1" style="background-image: url(resources/vert_fonce_037.jpg); -rave-layout: grid">
+                <jsp:directive.include file="EnteteAN.jspf"/>
+                <ice:form id="form1">
+                    <ice:panelTabSet id="panelTabSet1" selectedIndex="0" style="left: 0px; height:600px; visibility: visible;text-align:top">
+                        <ice:panelTab id="tabGeneralites" label="Généralités" style="border: 5px; background-color: lime; font-size: 18px; height: 500px">
+                            <ice:panelLayout id="panelLayout1" style="position:relative; background-color:lime;  height:500px; width:100%">
+                                <ice:outputLabel id="lbNom" style="font-size:18; font-weight:bold" value="Nom: "/>
+                                <ice:inputText id="nomMembre" style="font-size:18; font-weight:bold" value="#{sessionBean1.membreEnCours.nom}" visible="true"/>
+                                <br/>
+                                <ice:outputLabel id="lbPrenom" style="font-size:18; font-weight:bold" value="Prenom: "/>
+                                <ice:inputText id="prenomMembre" style="font-size:18; font-weight:bold" value="#{sessionBean1.membreEnCours.prenom}" visible="true"/>
+                                <br/>
+                                <ice:outputLabel id="lbAdresse1" style="font-size:18; font-weight:bold" value="Adresse1: "/>
+                                <ice:inputText id="adresse1membre" style="font-size:18; font-weight:bold" value="#{sessionBean1.membreEnCours.adresse1}" visible="true"/>
+                                <br/>
+                                <ice:outputLabel id="lbAdresse2" style="font-size:18; font-weight:bold" value="Adresse2: "/>
+                                <ice:inputText id="adresse2Membre" style="font-size:18; font-weight:bold" value="#{sessionBean1.membreEnCours.adresse2}" visible="true"/>
+                                <br/>
+                                <ice:outputLabel id="lbcodePostal" style="font-size:18; font-weight:bold" value="Code postal: "/>
+                                <ice:inputText id="codePostalMembre" style="font-size:18; font-weight:bold" value="#{sessionBean1.membreEnCours.codePostal}" visible="true"/>
+                                <br/>
+                                <ice:outputLabel id="lbVille" style="font-size:18; font-weight:bold" value="Ville : "/>
+                                <ice:inputText id="villeMembre" style="font-size:18; font-weight:bold" value="#{sessionBean1.membreEnCours.ville}" visible="true"/>
+                                <br/>
+                                
+                                <ice:outputLabel id="lbEmail" style="font-size:18; font-weight:bold" value="Email: "/>
+                                <ice:inputText id="emailmembre" style="font-size:18; font-weight:bold" value="#{sessionBean1.membreEnCours.email}" visible="true"/>
+                                <br/>
+                                
+                                <ice:outputLabel id="label1" style="font-size:18; font-weight:bold" value="date de naissance : " visible="true"/>
+                                <ice:inputText converter="#{PageListeMembres.sqlDateConverter1}" id="dateNaissanceMembre" style="font-size:18; font-weight:bold"
+                                    value="#{sessionBean1.membreEnCours.dateNaissance}" visible="true"/>
+                                <br/>
+                                
+                                <ice:outputLabel id="label2" style="font-size:18; font-weight:bold" value="date d'adhésion : " visible="true"/>
+                                <ice:inputText converter="#{PageListeMembres.sqlDateConverter1}" id="dateAdhesionMembre" style="font-size:18; font-weight:bold"
+                                    value="#{sessionBean1.membreEnCours.dateAdhesion}" visible="true"/>
+                                <br/>
+                                
+                                <ice:outputLabel id="lbTelDomicile" style="font-size:18; font-weight:bold" value="Téléphone domicile : "/>
+                                <ice:inputText id="teldomicilemembre" style="font-size:18; font-weight:bold"
+                                    value="#{sessionBean1.membreEnCours.telephoneDomicile}" visible="true"/>
+                                <br/>
+                                
+                                <ice:outputLabel id="lbPortable" style="font-size:18; font-weight:bold" value="Téléphone portable: "/>
+                                <ice:inputText id="telPortableMembre" style="font-size:18; font-weight:bold" value="#{sessionBean1.membreEnCours.telephoneGsm}" visible="true"/>
+                                <br/>
+                                
+                                <ice:outputLabel id="lbTelPro" style="font-size:18; font-weight:bold" value="Téléphone professionnel: "/>
+                                <ice:inputText id="telProfessionelMembre" style="font-size:18; font-weight:bold"
+                                    value="#{sessionBean1.membreEnCours.telephoneProf}" visible="true"/>
+                                <br/>
+                                
+                                <ice:outputLabel id="lbUtilisateur" style="font-size:18; font-weight:bold" value="Nom Utilisateur: "/>
+                                <ice:inputText id="nomUtilisateur" style="font-size:18; font-weight:bold" value="#{sessionBean1.membreEnCours.nomUtilisateur}" visible="true"/>
+                                <ice:outputLabel id="lbMotDePasse" style="font-size:18; font-weight:bold" value="Mot de passe : "/>
+                                <ice:inputText id="motDePasse" style="font-size:18; font-weight:bold" value="#{sessionBean1.membreEnCours.password}" visible="true"/>
+                                <br/>
+                                <h:selectOneMenu id="typeMembre" value="#{sessionBean1.membreEnCours.typeMembre}">
+                                            <f:selectItems value="#{ApplicationBean1.typesMembres}" />
+                                            
+                                </h:selectOneMenu>
+                                <h:selectOneMenu id="groupeUser" value="#{sessionBean1.membreEnCours.groupeUtilisateur}" rendered="#{sessionBean1.membreLoggé.administrateur}">
+                                            <f:selectItem itemLabel="Administrateur" itemValue="Administrateur" />
+                                            <f:selectItem itemLabel="Membre Section" itemValue="MembreSection" />
+                                            <f:selectItem itemLabel="Invité" itemValue="Invite" />
+                                </h:selectOneMenu>
+                            </ice:panelLayout>
+                        </ice:panelTab>
+                        <ice:panelTab id="tabFamille" label="Famille">
+                            <ice:panelLayout id="panelLayout2" style="height: 100%; position: relative; width: 100%">
+                                <ice:dataTable id="tableFamille" value="#{sessionBean1.membreEnCours.membresFamille}" var="rows">
+                                    <ice:column id="colSelected">
+                                        <ice:selectBooleanCheckbox id="idSelected" value="#{rows['selected']}"/>                
+                                        <f:facet name="header">
+                                            <ice:outputText id="outSelected" value="Sélection"/>
+                                        </f:facet>
+                                    </ice:column>
+                                    <ice:column id="colType">
+                                        <h:selectOneMenu id="dropdown1" value="#{rows['type']}">
+                                            <f:selectItem itemLabel="conjoint" itemValue="conjoint"/>
+                                            <f:selectItem itemLabel="enfant" itemValue="enfant"/>
+                                        </h:selectOneMenu>
+                                        <f:facet name="header">
+                                            <ice:outputText id="outType" value="parenté"/>
+                                        </f:facet>
+                                    </ice:column>
+                                    <ice:column id="colPrenom">
+                                        <ice:inputText id="famillePrenom" value="#{rows['prenom']}"/>
+                                        <f:facet name="header">
+                                            <ice:outputText id="outPrenom" value="prenom"/>
+                                        </f:facet>
+                                        <!--
+                                        <ice:rowSelector id="rowSelector1" selectionListener="#{PageModifMembre.rowSelector1_processAction}"/>
+                                        -->
+                                    </ice:column>
+                                    <ice:column id="colNom">
+                                        <ice:inputText id="familleNom" value="#{rows['nom']}"/>
+                                        <f:facet name="header">
+                                            <ice:outputText id="outNom" value="nom"/>
+                                        </f:facet>
+                                    </ice:column>
+                                    <ice:column id="colDateNaissance">
+                                        <ice:inputText converter="#{PageListeMembres.sqlDateConverter1}" id="familleDateNaissance" value="#{rows['dateNaissance']}"/>
+                                        <f:facet name="header">
+                                            <ice:outputText id="outDateNaissance" value="date de Naissance"/>
+                                        </f:facet>
+                                    </ice:column>
+                                    <ice:column id="colDateAdhesion">
+                                        <ice:inputText converter="#{PageListeMembres.sqlDateConverter1}" id="familleDateAdhesion" value="#{rows['dateAdhesion']}"/>
+                                        <f:facet name="header">
+                                            <ice:outputText id="outDateAdhesion" value="date d'Adhésion"/>
+                                        </f:facet>
+                                    </ice:column>
+                                    
+                                </ice:dataTable>
+                                <ice:commandButton action="#{pageModifMembre.btNouveauMembreFamille_action}" id="btNouveauMembreFamille" value="Nouveau"/>
+                                <ice:commandButton action="#{pageModifMembre.btEffaceMembreFamille_action}" id="btEffaceMembreFamille" value="Effacement sélection"/>
+                    </ice:panelLayout>
+                        </ice:panelTab>
+                        <!--
+                        <ice:panelTab id="panelTab3" label="Service refuge">
+                            <ice:panelLayout id="panelLayout3" style="height: 406px; right: 1px; top: 1px; position: relative; width: 1174px">
+                                <ice:outputText id="outputText15" value="#{sessionBean1.membreEnCours.nom}"/>
+                                <ice:dataTable id="dataTable1" value="#{sessionBean1.serviceRefugeEnCours}" var="rows">
+                                    <ice:column id="column1">
+                                        <ice:outputText converter="#{PageListeMembres.sqlDateConverter1}" id="outputText1" value="#{rows['dateDebut']}"/>
+                                        <f:facet name="header">
+                                            <ice:outputText id="outputText2" value="Début"/>
+                                        </f:facet>
+                                    </ice:column>
+                                    <ice:column id="column2">
+                                        <ice:outputText converter="#{PageListeMembres.sqlDateConverter1}" id="outputText3" value="#{rows['dateFin']}"/>
+                                        <f:facet name="header">
+                                            <ice:outputText id="outputText4" value="Fin"/>
+                                        </f:facet>
+                                    </ice:column>
+                                </ice:dataTable>
+                            </ice:panelLayout>
+                        </ice:panelTab>
+                        -->
+                    </ice:panelTabSet>
+                    <br/>
+                    <table width="100%">
+                        <td align="center">
+                        <ice:commandButton action="#{pageModifMembre.btValidation_action}" id="btValidation" value="Validation"/>
+                        </td>
+                        <td align="center">
+                        <ice:commandButton action="#{pageModifMembre.btAnnulation_action}" id="btAnnulation" value="Annulation"/>
+                       </td>
+                    </table>
+                </ice:form>
+            </body>
+        </html>
+    </f:view>
+</jsp:root>

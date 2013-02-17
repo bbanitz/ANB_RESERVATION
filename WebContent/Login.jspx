@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : Page1
+    Created on : 13 janv. 2009, 08:46:40
+    Author     : bbernard
+-->
+<jsp:root version="2.0" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ice="http://www.icesoft.com/icefaces/component" xmlns:jsp="http://java.sun.com/JSP/Page">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>
+    <f:view>
+        <html id="outputHtml1" lang="fr">
+            <head id="outputHead1">
+                <ice:outputStyle href="./resources/stylesheet.css" id="outputStyle1"/>
+                <ice:outputStyle href="./xmlhttp/css/xp/xp.css" id="outputStyle2"/>
+            </head>
+            <body id="outputBody1" style="background-image: url(resources/vert_fonce_037.jpg); -rave-layout: grid">
+                <jsp:directive.include file="EnteteAN.jspf"/>
+                <ice:outputText value="#{sessionBean1.connecté}" visible="false"></ice:outputText>
+                <ice:form id="form1" style="height: 16px">
+                    <ice:inputText binding="#{login.itUtilisateur}" id="itUtilisateur" style="position: absolute; left: 336px; top: 240px"/>
+                    <ice:outputText id="outputLabel1" style="left: 216px; top: 240px; position: absolute" value="Utilisateur :"/>
+                    <ice:inputSecret binding="#{login.isMotDePasse}" id="isMotDePasse" redisplay="true" style="position: absolute; left: 336px; top: 312px" value="******"/>
+                    <ice:outputLabel id="outputLabel2" style="left: 216px; top: 312px; position: absolute" value="Mot de passe :"/>
+                    <ice:commandButton action="#{login.btValidation_action}" id="btValidation"
+                        style="font-family: 'Arial','Helvetica',sans-serif; font-size: 18px; font-weight: bold; left: 336px; top: 408px; position: absolute" value="Validation"/>
+                    <ice:commandButton action="#{login.nouvelleInscription_Action}" value="Nouvelle inscription"></ice:commandButton>
+                    <ice:panelPopup autoCentre="true" draggable="true" id="panelPopup1" modal="true" rendered="#{login.popUpVisible}"
+                        style="display: block; height: 165px; left: 504px; top: 168px; position: absolute; width: 288px" visible="#{login.popUpVisible}">
+                        <f:facet name="header">
+                            <ice:panelGrid id="panelGrid1" style="display:block;width:180px;height:20px;">
+                                <ice:outputText id="outputText1" value="Erreur"/>
+                            </ice:panelGrid>
+                        </f:facet>
+                        <f:facet name="body">
+                            <ice:panelGrid id="panelGrid2" style="display: block; height: 62px" width="278">
+                                <ice:outputText id="outputText2" value="utilisateur inconnu ou mot de passe erronné"/>
+                                <ice:commandButton action="#{login.btFermerPopup_action}" id="btFermerPopup" value="Fermer"/>
+                            </ice:panelGrid>
+                        </f:facet>
+                    </ice:panelPopup>
+                </ice:form>
+            </body>
+        </html>
+    </f:view>
+</jsp:root>

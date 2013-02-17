@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : PageServiceRefuge
+    Created on : 4 juil. 2009, 18:58:17
+    Author     : bbernard
+-->
+<jsp:root version="2.1" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ice="http://www.icesoft.com/icefaces/component" xmlns:jsp="http://java.sun.com/JSP/Page">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>
+    <f:view>
+        <html id="outputHtml1">
+            <head id="outputHead1">
+                <ice:outputStyle href="./resources/stylesheet.css" id="outputStyle1"/>
+                <ice:outputStyle href="./xmlhttp/css/xp/xp.css" id="outputStyle2"/>
+            </head>
+            <body id="outputBody1" style="background-image: url(resources/vert_fonce_037.jpg); -rave-layout: grid">
+                <ice:form id="form1">
+                    <jsp:directive.include file="EnteteAN.jspf"/>
+                    <div align="center">
+                        <ice:outputText id="outputText1" style="color: yellow; font-family: Arial,Helvetica,sans-serif; font-size: 24px; font-weight: bold" value="Service refuge"/>
+                        <br/>
+                        <ice:outputText id="outputText3" style="color: yellow; font-family: Arial,Helvetica,sans-serif; font-size: 24px; font-weight: bold" value="#{sessionBean1.membreEnCours.nom}"/>
+                        <ice:outputText id="outputText2" style="color: yellow; font-family: Arial,Helvetica,sans-serif; font-size: 24px; font-weight: bold" value="#{sessionBean1.membreEnCours.prenom}"/>
+                    </div>
+                    <table align="center" width="100%">
+                        <tr style="color: yellow; font-family: Arial,Helvetica,sans-serif; font-size: 24px; font-weight: bold">
+                            <td align="center" width="50%">
+                                Du
+                            </td>
+                            <td align="center" width="50%">
+                                Au
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" width="50%">
+                                <ice:selectInputDate binding="#{PageServiceRefuge.dateDebut}" converter="#{PageServiceRefuge.sqlDateConverter1}" id="dateDebut"
+                                                     style="background-color: lime" value="#{sessionBean1.serviceRefugeEnCours.dateDebut}" valueChangeListener="#{PageServiceRefuge.dateDebut_processValueChange}" required="true"/>
+                            </td>
+                            <td align="center" width="50%">
+                                <ice:selectInputDate binding="#{PageServiceRefuge.dateFin}" converter="#{PageServiceRefuge.sqlDateConverter1}" id="dateFin"
+                                                     style="background-color: lime" value="#{sessionBean1.serviceRefugeEnCours.dateFin}" required="true"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <div align="center" width="100%">
+                        <ice:outputLabel id="label1" style="color: yellow; font-family: Arial,Helvetica,sans-serif; font-size: 22px; font-weight: bold" value="Nombre de personnes : "/>
+                        <ice:inputText id="nombrePersonnes" value="#{sessionBean1.serviceRefugeEnCours.nombrePersonnes}"/>
+                    </div>
+                    <table align="center" width="100%">
+                        <tr>
+                            <td align="center" width="50%">
+                                <ice:commandButton action="#{PageServiceRefuge.btValidation_action}" id="btValidation"
+                                                   style="font-family: Arial,Helvetica,sans-serif; font-size: 24px; font-weight: bold" value="Validation"/>
+                            </td>
+                            <td align="center" width="50%">
+                                <ice:commandButton action="#{PageServiceRefuge.btAnnulation_action}" id="btAnnulation"
+                                                   style="font-family: Arial,Helvetica,sans-serif; font-size: 24px; font-weight: bold" value="Annulation"/>
+                            </td>
+                        </tr>
+                    </table>
+                    <h:messages></h:messages>
+                </ice:form>
+            </body>
+        </html>
+    </f:view>
+</jsp:root>

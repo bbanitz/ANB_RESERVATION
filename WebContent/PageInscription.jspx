@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<jsp:root version="1.2" xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+	<jsp:directive.page contentType="text/html;charset=utf-8" />
+	<f:view>
+		<ice:outputDeclaration doctypeRoot="HTML"
+			doctypePublic="-//W3C//DTD HTML 4.01 Transitional//EN"
+			doctypeSystem="http://www.w3.org/TR/html4/loose.dtd" />
+		<html>
+		<head>
+		<title>"Nouvelle inscription aux amis de la nature"</title>
+		<ice:outputStyle href="./xmlhttp/css/rime/rime.css" />
+		</head>
+		<body style="background-image: url(resources/vert_fonce_037.jpg)">
+		<jsp:directive.include file="EnteteAN.jspf" />
+		<div align="center"><ice:outputText
+			style="color: Yellow; font-size: 22px; font-family: Verdana, Arial, Sans-Serif; font-weight: bold"
+			value="Nouvelle inscription" />
+		</div>
+
+		<ice:form>
+		    <div style="color: #FFFF00; font-size: 14px; font-family: Verdana, Arial, Sans-Serif">
+			<ice:panelGrid border="0" columns="2" width="100%" >
+				
+				<ice:outputText value="Nom :"></ice:outputText>
+				<ice:inputText value="#{pageInscription.nouveauMembre.nom}" id="inNom"></ice:inputText>
+				<ice:outputText value="Prénom"></ice:outputText>
+				<ice:inputText id="inPrenom" value="#{pageInscription.nouveauMembre.prenom}"></ice:inputText>
+				<ice:outputText value="Adresse 1:"></ice:outputText>
+				<ice:inputText value="#{pageInscription.nouveauMembre.adresse1}"></ice:inputText>
+				<ice:outputText value="Adresse 2:"></ice:outputText>
+				<ice:inputText value="#{pageInscription.nouveauMembre.adresse2}"></ice:inputText>
+				<ice:outputText value="Code Postal:"></ice:outputText>
+				<ice:inputText value="#{pageInscription.nouveauMembre.codePostal}"></ice:inputText>
+				<ice:outputText value="Ville:"></ice:outputText>
+				<ice:inputText value="#{pageInscription.nouveauMembre.ville}"></ice:inputText>
+				<ice:outputText value="Email:"></ice:outputText>
+				<ice:inputText value="#{pageInscription.nouveauMembre.email}"></ice:inputText>
+				<ice:outputText value="Téléphone domicile :"></ice:outputText>
+				<ice:inputText value="#{pageInscription.nouveauMembre.telephoneDomicile}"></ice:inputText>
+				<ice:outputText value="Téléphone portable"></ice:outputText>
+				<ice:inputText value="#{pageInscription.nouveauMembre.telephoneGsm}"></ice:inputText>
+				<ice:outputText value="Mot de passe"></ice:outputText>
+				<ice:inputText value="#{pageInscription.nouveauMembre.password}"></ice:inputText>
+				
+			</ice:panelGrid>
+			</div>
+			
+			<ice:messages />
+			<ice:panelGrid columns="2" width="100%" style="text-align: center">
+			<ice:commandButton id="btValidation" value="Validation" action="#{pageInscription.validation_action}"> </ice:commandButton>
+			<ice:commandButton id="btAnnulation" value="Annulation" action="#{pageInscription.annulation_action}"></ice:commandButton>
+			
+			</ice:panelGrid>
+		</ice:form>
+
+		</body>
+		</html>
+	</f:view>
+</jsp:root>

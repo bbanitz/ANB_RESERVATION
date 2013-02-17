@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+    Document   : EnteteAN
+    Created on : 13 janv. 2009, 10:36:09
+    Author     : bbernard
+-->
+<span style="position:relative; top:0px; left:0px;  height: 80px; width: 100%" xmlns:f="http://java.sun.com/jsf/core" xmlns:ice="http://www.icesoft.com/icefaces/component">
+    <f:subview id="EnteteAN">
+            <table border="3" width="100%">
+                <tr>
+                    <td align="left" bgcolor="lime" style="width: 80px">
+                        <ice:graphicImage id="graphicImage1" style="width:80px;height:80px" value="/resources/Logo_AN.gif"/>
+                    </td>
+                    <td align="center" bgcolor="green" valign="middle">
+                        <ice:outputLabel id="outputLabel1"
+                            style="color: yellow; font-family: 'Times New Roman',Times,serif; font-size: 36px; font-style: normal; font-weight: bold" value="Les Amis de la Nature"/>
+                    </td>
+                    <td align="right" bgcolor="lime" style="width:80px">
+                        <ice:graphicImage id="graphicImage2" style="width:80px;height:80px" value="/resources/Logo_AN.gif"/>
+                    </td>
+                </tr>
+                
+            </table>
+    </f:subview>
+</span>

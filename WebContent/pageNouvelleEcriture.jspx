@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<jsp:root version="1.2" 
+  xmlns:jsp="http://java.sun.com/JSP/Page"
+   xmlns:f="http://java.sun.com/jsf/core"
+  xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:ice="http://www.icesoft.com/icefaces/component">
+<jsp:directive.page contentType="text/html;charset=utf-8" />
+<f:view>
+  <ice:outputDeclaration doctypeRoot="HTML" doctypePublic="-//W3C//DTD HTML 4.01 Transitional//EN" doctypeSystem="http://www.w3.org/TR/html4/loose.dtd"/>
+  <html>
+    <head>
+     <title><ice:outputText value="ICEfaces, Ajax for Java EE" /></title>
+     <ice:outputStyle href="./xmlhttp/css/rime/rime.css" />
+    </head>
+    <body style="background-image: url(resources/vert_fonce_037.jpg)">
+      <jsp:directive.include file="EnteteAN.jspf"/>
+     
+     <ice:form>
+     <ice:panelGrid columns="2">
+        <ice:outputLabel value="Date"></ice:outputLabel>
+		<ice:selectInputDate value="#{sessionBean1.ecritureEnCours.date}"
+				style="font-size: 9;width: 88px; height: 68px;display: block;" renderAsPopup="true"><f:convertDateTime /></ice:selectInputDate>
+		<ice:outputLabel value="code"></ice:outputLabel>
+		 <ice:setEventPhase
+            events="ValueChangeEvent"
+            phase="INVOKE_APPLICATION">
+		
+		<ice:selectOneMenu id="lsCode" partialSubmit="true" value="#{sessionBean1.ecritureEnCours.code}" valueChangeListener="#{pageNouvelleEcriture.valueChangeEvent}">
+		  <f:selectItems value="#{pageNouvelleEcriture.listeCodes}"/>
+		</ice:selectOneMenu>
+		</ice:setEventPhase>	
+		<ice:outputLabel value="libellé"></ice:outputLabel>	
+		<ice:inputText value="#{sessionBean1.ecritureEnCours.libelle}"></ice:inputText>
+		<ice:outputLabel value="crédit"></ice:outputLabel>
+		<ice:inputText value="#{sessionBean1.ecritureEnCours.credit}"></ice:inputText>
+		<ice:outputLabel value="débit"></ice:outputLabel>
+		<ice:inputText value="#{sessionBean1.ecritureEnCours.debit}"></ice:inputText>
+		<ice:outputLabel value="règlé par"></ice:outputLabel>
+		<ice:inputText value="#{sessionBean1.ecritureEnCours.reglePar}"></ice:inputText>
+	
+		</ice:panelGrid>
+                                        <table style="width:100%">
+                                    <tr>
+                                        <td align="center" style="width:33%">
+                                            <ice:commandButton action="#{pageNouvelleEcriture.btValidation_action}" id="btValidation"
+                                                style="font-family: Arial,Helvetica,sans-serif; font-size: 18px; font-style: normal; font-weight: bold;" value="Validation"/>
+                                        </td>
+                                        <td align="center" style="width:33%">
+                                            <ice:commandButton action="#{pageNouvelleEcriture.btAnnulation_action}" 
+                                                id="btAnnulation"
+                                                style="font-family: Arial,Helvetica,sans-serif; font-size: 18px; font-style: normal; font-weight: bold;" value="Annulation"/>
+                                        </td>
+                                    </tr>
+                                </table>
+        
+        <ice:messages />
+
+     </ice:form>
+
+    </body>
+  </html>
+</f:view>
+</jsp:root>

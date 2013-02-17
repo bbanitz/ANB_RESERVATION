@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : EditServiceRefuge
+    Created on : 12 mai 2009, 10:03:50
+    Author     : bbernard 
+-->
+<jsp:root version="2.1" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ice="http://www.icesoft.com/icefaces/component" xmlns:jsp="http://java.sun.com/JSP/Page">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>
+    <f:view>
+        <html id="outputHtml1">
+            <head id="outputHead1">
+                <ice:outputStyle href="./resources/stylesheet.css" id="outputStyle1"/>
+                <ice:outputStyle href="./xmlhttp/css/xp/xp.css" id="outputStyle2"/>
+            </head>
+            <body id="outputBody1" style="background-image: url(resources/vert_fonce_037.jpg); -rave-layout: grid">
+                <ice:form id="form1">
+                    <ice:outputText id="outputText1"
+                        style="color: yellow; font-family: Arial,Helvetica,sans-serif; font-size: 24px; height: 24px; left: 192px; top: 264px; position: absolute; width: 240px" value="#{sessionBean1.membreEnCours.nom}"/>
+                    <ice:outputText id="outputText2" style="position: absolute; left: 192px; top: 336px; width: 264px; height: 24px" value="#{sessionBean1.membreEnCours.prenom}"/>
+                    <ice:selectInputDate converter="#{editServiceRefuge.sqlDateConverter1}" id="selectInputDate1" renderMonthAsDropdown="true"
+                        renderYearAsDropdown="true" style="position: absolute; left: 192px; top: 408px; width: 288px; height: 48px;"
+                        value="#{sessionBean1.serviceRefugeEnCours.dateDebut}" visible="true"/>
+                    <ice:selectInputDate converter="#{editServiceRefuge.sqlDateConverter1}" id="selectInputDate2"
+                        style="position: absolute; left: 576px; top: 408px; width: 288px; height: 144px;" value="#{sessionBean1.serviceRefugeEnCours.dateFin}"/>
+                </ice:form>
+                <div style="position: absolute; left: 0px; top: 0px">
+                    <jsp:directive.include file="EnteteAN.jspf"/>
+                </div>
+            </body>
+        </html>
+    </f:view>
+</jsp:root>

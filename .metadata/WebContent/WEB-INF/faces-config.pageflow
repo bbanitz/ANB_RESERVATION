@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf12544588712800" configfile="/an/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="PageListeReservations" x="33" y="444" id="pf125604140989029" referenceLink="//@navigationRule.7/@fromViewId|" outlinks="pf125604168095037 pf125604168095038 pf125604168095039 pf125604168095040" inlinks="pf125604168095053" path="/PageListeReservations.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="Login" x="120" y="12" id="pf125604168095042" referenceLink="//@navigationRule.16/@navigationCase.0/@toViewId|" outlinks="pf125604168095043 pf125604168095044 pf125604168095046 pf12618519096963 pf12728788045640" inlinks="pf125604168095039 pf125604168095040 pf125604168095051 pf125604183858760 pf12618549539844 pf12728832352852 pf12729099083511" path="/Login.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="PageListeMembres" x="576" y="196" id="pf125604168095047" referenceLink="//@navigationRule.22/@navigationCase.0/@toViewId|" outlinks="pf125604168095048 pf125604168095049 pf125604168095050 pf125604168095051 pf125604168095052 pf125604168095053 pf125604183858761 pf12753267890790" inlinks="pf125604168095037 pf125604168095056 pf125604168095043 pf125604183858762 pf125604183858763 pf125604183858764 pf12756703861590" path="/PageListeMembres.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="Calendrier" x="396" y="624" id="pf125604168095054" referenceLink="//@navigationRule.7/@navigationCase.1/@toViewId|" outlinks="pf125604183858764 pf125604183858760" inlinks="pf125604168095038 pf125604168095052 pf125604168095046" path="/Calendrier.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="PageServiceRefuge" x="810" y="336" id="pf125604168095055" referenceLink="//@navigationRule.5/@fromViewId|" outlinks="pf125604168095056" inlinks="pf125604168095050" path="/PageServiceRefuge.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="PageModifMembre" x="1080" y="156" id="pf125604168095057" referenceLink="//@navigationRule.18/@fromViewId|" outlinks="pf125604183858762 pf12729613485631" inlinks="pf125604168095048 pf125604168095044 pf12729582835750" path="/PageModifMembre.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="EditServiceRefuge" x="924" y="240" id="pf125604168094031" referenceLink="//@navigationRule.1/@navigationCase.1/@toViewId|" inlinks="pf125604168095049" path="/EditServiceRefuge.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="pageReservation" x="810" y="12" id="pf125604183858767" referenceLink="//@navigationRule.20/@fromViewId|" outlinks="pf125604183858763 pf12729772982243" inlinks="pf125604183858761 pf12729769791682" path="/pageReservation.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="PageConfirmationInscription" x="264" y="224" id="pf12618497332970" referenceLink="//@navigationRule.11/@fromViewId|" outlinks="pf12618549539845 pf12618549539844" inlinks="pf12618497332971" path="/PageConfirmationInscription.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="PageInscription" x="-60" y="128" id="pf12618497332972" referenceLink="//@navigationRule.10/@navigationCase.0/@toViewId|" outlinks="pf12618497332971" inlinks="pf12618519096963 pf12618549539845" path="/PageInscription.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="PageMembre" x="-132" y="36" id="pf12728788045661" referenceLink="//@navigationRule.20/@navigationCase.0/@toViewId|" outlinks="pf12728832352852 pf12728861508203 pf12729582835750 pf12729769791682" inlinks="pf12728788045640 pf12728890997920 pf12729613485631 pf12729772982243" path="/PageMembre.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="CalendrierMembre" x="-132" y="660" id="pf12728861508204" referenceLink="//@navigationRule.16/@fromViewId|" outlinks="pf12728890997920 pf12729099083511" inlinks="pf12728861508203" path="/CalendrierMembre.jspx"/>
+  <nodes xsi:type="pageflow:PFPage" name="pageNouvelleEcriture" x="672" y="576" id="pf12753267890801" referenceLink="//@navigationRule.22/@fromViewId|" outlinks="pf12756703861590" inlinks="pf12753267890790" path="/pageNouvelleEcriture.jspx"/>
+  <links id="pf125604168095037" target="pf125604168095047" source="pf125604140989029" outcome="listeMembres"/>
+  <links id="pf125604168095038" target="pf125604168095054" source="pf125604140989029" outcome="calendrier"/>
+  <links id="pf125604168095039" target="pf125604168095042" source="pf125604140989029" outcome="case1"/>
+  <links id="pf125604168095040" target="pf125604168095042" source="pf125604140989029" outcome="login"/>
+  <links id="pf125604168095056" target="pf125604168095047" source="pf125604168095055" outcome="retour"/>
+  <links id="pf125604168095048" target="pf125604168095057" source="pf125604168095047" outcome="edit"/>
+  <links id="pf125604168095049" target="pf125604168094031" source="pf125604168095047" outcome="editServiceRefuge"/>
+  <links id="pf125604168095050" target="pf125604168095055" source="pf125604168095047" outcome="serviceRefuge"/>
+  <links id="pf125604168095051" target="pf125604168095042" source="pf125604168095047" outcome="login"/>
+  <links id="pf125604168095052" target="pf125604168095054" source="pf125604168095047" outcome="calendrier"/>
+  <links id="pf125604168095053" target="pf125604140989029" source="pf125604168095047" outcome="listeReservations"/>
+  <links id="pf125604168095043" target="pf125604168095047" source="pf125604168095042" outcome="listeMembres"/>
+  <links id="pf125604168095044" target="pf125604168095057" source="pf125604168095042" outcome="modifMembre">
+    <bendPoints d1Width="589" d1Height="34" d2Width="-407" d2Height="-110"/>
+  </links>
+  <links id="pf125604168095046" target="pf125604168095054" source="pf125604168095042" outcome="calendrier"/>
+  <links id="pf125604183858762" target="pf125604168095047" source="pf125604168095057" outcome="retourListeMembres"/>
+  <links id="pf125604183858761" target="pf125604183858767" source="pf125604168095047" outcome="modifReservation">
+    <bendPoints d1Width="24" d1Height="-75" d2Width="-93" d2Height="61"/>
+  </links>
+  <links id="pf125604183858763" target="pf125604168095047" source="pf125604183858767" outcome="retourListeMembres">
+    <bendPoints d1Width="-17" d1Height="81" d2Width="100" d2Height="-55"/>
+  </links>
+  <links id="pf125604183858764" target="pf125604168095047" source="pf125604168095054" outcome="listemembres"/>
+  <links id="pf125604183858760" target="pf125604168095042" source="pf125604168095054" outcome="login"/>
+  <links id="pf12618497332971" target="pf12618497332970" source="pf12618497332972" outcome="confirmation"/>
+  <links id="pf12618519096963" target="pf12618497332972" source="pf125604168095042" outcome="nouvelleInscription"/>
+  <links id="pf12618549539845" target="pf12618497332972" source="pf12618497332970" outcome="modification"/>
+  <links id="pf12618549539844" target="pf125604168095042" source="pf12618497332970" outcome="annulation"/>
+  <links id="pf12728788045640" target="pf12728788045661" source="pf125604168095042" outcome="pageMembre" redirect="true"/>
+  <links id="pf12728832352852" target="pf125604168095042" source="pf12728788045661" outcome="login">
+    <bendPoints d1Width="114" d1Height="10" d2Width="-119" d2Height="34"/>
+  </links>
+  <links id="pf12728861508203" target="pf12728861508204" source="pf12728788045661" outcome="calendrier">
+    <bendPoints d1Width="80" d1Height="350" d2Width="62" d2Height="-274"/>
+  </links>
+  <links id="pf12728890997920" target="pf12728788045661" source="pf12728861508204" outcome="ficheMembre"/>
+  <links id="pf12729099083511" target="pf125604168095042" source="pf12728861508204" outcome="login"/>
+  <links id="pf12729582835750" target="pf125604168095057" source="pf12728788045661" outcome="modifMembre">
+    <bendPoints d1Width="380" d1Height="-67" d2Width="-849" d2Height="-187"/>
+  </links>
+  <links id="pf12729613485631" target="pf12728788045661" source="pf125604168095057" outcome="retourMembre"/>
+  <links id="pf12729769791682" target="pf125604183858767" source="pf12728788045661" outcome="reservation"/>
+  <links id="pf12729772982243" target="pf12728788045661" source="pf125604183858767" outcome="retourMembre"/>
+  <links id="pf12753267890790" target="pf12753267890801" source="pf125604168095047" outcome="ecriture"/>
+  <links id="pf12756703861590" target="pf125604168095047" source="pf12753267890801" outcome="listemembres"/>
+</pageflow:Pageflow>

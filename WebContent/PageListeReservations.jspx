@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Document   : PageListeReservations
+    Created on : 27 juil. 2009, 10:07:28
+    Author     : bbernard
+-->
+<jsp:root version="2.1" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ice="http://www.icesoft.com/icefaces/component" xmlns:jsp="http://java.sun.com/JSP/Page">
+    <jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>
+    <f:view>
+        <html id="outputHtml1">
+            <head id="outputHead1">
+                <ice:outputStyle href="./resources/stylesheet.css" id="outputStyle1"/>
+                <ice:outputStyle href="./xmlhttp/css/xp/xp.css" id="outputStyle2"/>
+            </head>
+            <body id="outputBody1" style="background-image: url(resources/vert_fonce_037.jpg); -rave-layout: grid">
+                <ice:form id="form1">
+                    <jsp:directive.include file="EnteteAN.jspf"/>
+                    <ice:panelLayout id="panelLayoutMenu" style="width:100%; position:relative; height:20px;">
+                        <ice:menuBar id="menuBar1" style="position: relative;  top: 0px;">
+                            <ice:menuItem action="#{pageListeReservations.menuDeconnection_action}" id="menuDeconnection" value="Déconnection"/>
+                            <ice:menuItem action="#{pageListeReservations.menuCalendrier_action}" id="menuCalendrier" value="Calendrier"/>
+                            <ice:menuItem action="#{pageListeReservations.listeMembres_action}" id="listeMembres" value="Liste membres"/>
+                        </ice:menuBar>
+                    </ice:panelLayout>
+                    <ice:selectManyCheckbox id="selectManyCheckbox1" partialSubmit="true" value="#{pageListeReservations.selectedCheckbox1}" valueChangeListener="#{pageListeReservations.selectManyCheckbox1_processValueChange}">
+                        <f:selectItems id="selectManyCheckbox1selectItems" value="#{pageListeReservations.checkBox1}"/>
+                    </ice:selectManyCheckbox>
+                    <ice:dataTable id="dataTableReservation" value="#{pageListeReservations.listeReservationsEnCours}" var="rows">
+                        <ice:column id="colCreation">
+                            <ice:outputText converter="#{PageListeMembres.sqlDateConverter1}" id="creationoutputText1" value="#{rows['dateCreation']}"/>
+                            <f:facet name="header">
+                                <ice:outputText id="creationoutputText2" value="Création"/>
+                            </f:facet>
+                        </ice:column>
+                        <ice:column id="reservcolumn10">
+                            <ice:outputText id="reservoutputText20" value="#{rows['nom']}"/>
+                            <f:facet name="header">
+                                <ice:outputText id="reservoutputText21" value="Nom"/>
+                            </f:facet>
+                        </ice:column>
+                        <ice:column id="reservcolumn11">
+                            <ice:outputText id="reservoutputText22" value="#{rows['prenom']}"/>
+                            <f:facet name="header">
+                                <ice:outputText id="reservoutputText23" value="Prénom"/>
+                            </f:facet>
+                        </ice:column>
+                        <ice:column id="reservcolumn1">
+                            <ice:outputText converter="#{PageListeMembres.sqlDateConverter1}" id="reservoutputText1" value="#{rows['dateDebut']}"/>
+                            <f:facet name="header">
+                                <ice:outputText id="reservoutputText2" value="Du"/>
+                            </f:facet>
+                            <ice:rowSelector id="rowSelectorReservation" multiple="true" value="#{rows.selected}"/>
+                        </ice:column>
+                        <ice:column id="reservcolumn2">
+                            <ice:outputText converter="#{PageListeMembres.sqlDateConverter1}" id="reservoutputText3" value="#{rows['dateFin']}"/>
+                            <f:facet name="header">
+                                <ice:outputText id="reservoutputText4" value="Au"/>
+                            </f:facet>
+                        </ice:column>
+                        <ice:column id="reservcolumn3">
+                            <ice:outputText id="reservoutput6" value="Adultes : #{rows['nombreAdultesSection']}"/>
+                            <ice:outputText id="reservoutputT7" value="Enfants : #{rows['nombreEnfantsSection']}"/>
+                            <f:facet name="header">
+                                <ice:outputText id="reservoutx5" value="Section"/>
+                            </f:facet>
+                        </ice:column>
+                        <ice:column id="reservcolumn4">
+                            <ice:outputText id="reservout8" value="Adultes : #{rows['nombreAdultesAutreSection']}"/>
+                            <ice:outputText id="reservout9" value="Enfants : #{rows['nombreEnfantsAutreSection']}"/>
+                            <f:facet name="header">
+                                <ice:outputText id="reservout10" value="Autre Section"/>
+                            </f:facet>
+                        </ice:column>
+                        <ice:column id="reservcolumn5">
+                            <ice:outputText id="reservout11" value="Adultes : #{rows['nombreAdultesNonAN']}"/>
+                            <ice:outputText id="reservout12" value="Enfants : #{rows['nombreEnfantsNonAN']}"/>
+                            <f:facet name="header">
+                                <ice:outputText id="reservout13" value="Hôtes"/>
+                            </f:facet>
+                        </ice:column>
+                        <ice:column id="reservcolumn6">
+                            <ice:outputText id="reservout14" value="Adultes : #{rows['nombreAdultesGratuits']}"/>
+                            <ice:outputText id="reservout15" value="Enfants : #{rows['nombreEnfantsGratuits']}"/>
+                            <f:facet name="header">
+                                <ice:outputText id="reservout16" value="Gratuits"/>
+                            </f:facet>
+                        </ice:column>
+                        <ice:column id="reservcolStatut">
+                            <ice:outputText id="reservstatut" value="#{rows['statut']}"/>
+                            <f:facet name="header">
+                                <ice:outputText id="reservstatut2" value="Statut"/>
+                            </f:facet>
+                        </ice:column>
+                        <ice:column id="colDateModif">
+                            <ice:outputText converter="#{PageListeMembres.sqlDateConverter1}" id="outDateModif1" value="#{rows['modificationLe']}"/>
+                            <f:facet name="header">
+                                <ice:outputText id="outDateModif2" value="Modifié le"/>
+                            </f:facet>
+                        </ice:column>
+                        <ice:column id="colModifPar">
+                            <ice:outputText id="outModifPar1" value="#{rows['modificationPar'].nom} #{rows['modificationPar'].prenom}"/>
+                            <f:facet name="header">
+                                <ice:outputText id="outModifPar2" value="Par"/>
+                            </f:facet>
+                        </ice:column>
+                    </ice:dataTable>
+                    <ice:selectOneRadio id="selectOneRadio1" partialSubmit="true" value="#{pageListeReservations.selectedRadiobox1}">
+                        <f:selectItems id="selectOneRadio1selectItems" value="#{pageListeReservations.checkBox1}"/>
+                    </ice:selectOneRadio>
+                    <ice:commandButton action="#{pageListeReservations.btModifierStatuts_action}" id="btModifierStatuts"
+                        style="position: relative; left: 24px; top: 2px; width: 96px; height: 24px" value="Modifier statuts"/>
+                </ice:form>
+            </body>
+        </html>
+    </f:view>
+</jsp:root>

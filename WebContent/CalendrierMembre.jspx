@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    Document   : Calendrier
+    Created on : 14 mai 2009, 09:25:45
+    Author     : bbernard
+-->
+<jsp:root version="2.0" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:jsp="http://java.sun.com/JSP/Page">
+	<jsp:directive.page contentType="text/html;charset=UTF-8"
+		pageEncoding="UTF-8" />
+	<f:view>
+		<html id="outputHtml1">
+		<head id="outputHead1">
+		<ice:outputStyle href="./resources/stylesheet.css" id="outputStyle1" />
+		<ice:outputStyle href="./xmlhttp/css/xp/xp.css" id="outputStyle2" />
+		</head>
+		<body id="outputBody1"
+			style="background-image: url(resources/vert_fonce_037.jpg); -rave-layout: grid">
+		<jsp:directive.include file="EnteteAN.jspf" />
+		<ice:form id="form1" style="height: 100%">
+			<ice:panelLayout id="panelLayoutMenu"
+				style="width:100%; height:20px;">
+				<ice:menuBar id="menuBar1"
+					style="position: relative; left: 10px; top: 0px;">
+					<ice:menuItem action="#{calendrierMembre.menuDeconnection_action}"
+						id="menuDeconnection" value="Déconnection" />
+					<ice:menuItem action="#{calendrierMembre.menuFicheMembre_action}"
+						id="menuListeMembres" value="Fiche membre" />
+
+				</ice:menuBar>
+			</ice:panelLayout>
+			<ice:inputText id="valeurJour" value="#{calendrierMembre.valeurJour}"
+				visible="false" />
+			<ice:inputText id="valeurMois" value="#{calendrierMembre.valeurMois}"
+				visible="false" />
+
+			<table id="boutons" width="100%" style="position: relative; top: 40">
+				<td align="center"><ice:commandButton
+					action="#{calendrierMembre.btMoisPrecedant_action}"
+					id="btMoisPrecedant"
+					image="./xmlhttp/css/xp/css-images/arrow-previous.gif"
+					value="mois précédant">
+					<ice:outputText
+						style="font-style: normal; font-size: 20px; font-family: Verdana, Arial, Sans-Serif; font-weight: bold; color: Yellow"> mois précédant</ice:outputText>
+				</ice:commandButton></td>
+				<td align="center"><ice:commandButton
+					action="#{calendrierMembre.btMoisSuivant_action}"
+					id="btMoisSuivant"
+					image="./xmlhttp/css/xp/css-images/arrow-next.gif"
+					value="mois suivant">
+					<ice:outputText
+						style="font-style: normal; font-size: 20px; font-family: Verdana, Arial, Sans-Serif; font-weight: bold; color: Yellow"> mois suivant</ice:outputText>
+				</ice:commandButton></td>
+			</table>
+			<span style="position: relative; top: 60"> <ice:outputText
+				escape="false" value="#{calendrierMembre.html}" /> </span>
+		</ice:form>
+		</body>
+		</html>
+	</f:view>
+</jsp:root>
