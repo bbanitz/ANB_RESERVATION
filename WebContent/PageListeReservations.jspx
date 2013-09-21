@@ -19,7 +19,7 @@
                         <ice:menuBar id="menuBar1" style="position: relative;  top: 0px;">
                             <ice:menuItem action="#{pageListeReservations.menuDeconnection_action}" id="menuDeconnection" value="Déconnection"/>
                             <ice:menuItem action="#{pageListeReservations.menuCalendrier_action}" id="menuCalendrier" value="Calendrier"/>
-                            <ice:menuItem action="#{pageListeReservations.listeMembres_action}" id="listeMembres" value="Liste membres"/>
+                            <ice:menuItem action="#{pageListeReservations.listeMembres_action}" id="listeMembres" value="Liste contacts"/>
                         </ice:menuBar>
                     </ice:panelLayout>
                     <ice:selectManyCheckbox id="selectManyCheckbox1" partialSubmit="true" value="#{pageListeReservations.selectedCheckbox1}" valueChangeListener="#{pageListeReservations.selectManyCheckbox1_processValueChange}">

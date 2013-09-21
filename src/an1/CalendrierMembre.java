@@ -93,13 +93,15 @@ public class CalendrierMembre {
     }
 
     public String getHtml() {
+    	String[] selection={"Demande","Option","Ferme","AcomptePayé","Payé"};
     	if (valeurJour!="" && valeurMois!=""){
     		UnJour jourCourant=getSessionBean1().getCalendrier1().getListeMois().get(Integer.parseInt(valeurMois)).getListeJours().get(Integer.parseInt(valeurJour)-1);
-    		getSessionBean1().getCalendrier1().setReservationsEnCours(jourCourant.getReservations());
+    		
+    		getSessionBean1().getCalendrier1().setReservationsEnCours(jourCourant.getReservations(selection));
     		getSessionBean1().getCalendrier1().setServiceRefugeEnCours(jourCourant.getServiceRefuge());
     	}
     	
-        return getSessionBean1().getCalendrier1().getHTML();
+        return getSessionBean1().getCalendrier1().getHTML(selection);
     }
 
 

@@ -280,6 +280,7 @@ public class PageListeMembres implements Renderable {
 
     public String btEditServiceRefuge_action() {
         //return null means stay on the same page
+    	if (sessionBean1.getServiceRefugeEnCours()==null) return null;
         return "serviceRefuge";
     }
 
@@ -319,7 +320,8 @@ public class PageListeMembres implements Renderable {
     }
 
     public void effaceReservation() {
-        List<Reservations> res = getSessionBean1().getReservationsMembreEnCours();
+        
+    	List<Reservations> res = getSessionBean1().getReservationsMembreEnCours();
         for (int i = 0; i < res.size(); i++) {
             if (res.get(i).isSelected()) {
                 try {
@@ -392,13 +394,16 @@ public class PageListeMembres implements Renderable {
 
     public String btEditReservation_action() {
         //return null means stay on the same page
+    	boolean oneSelected=false;
         List<Reservations> res = getSessionBean1().getReservationsMembreEnCours();
         for (int i = 0; i < res.size(); i++) {
             if (res.get(i).isSelected()) {
                 getSessionBean1().setReservationEnCours(res.get(i));
+                oneSelected=true;
                 break;
             }
         }
+        if (!oneSelected) return null;
         getSessionBean1().setRetourVersMembre(false);
         return "modifReservation";
     }

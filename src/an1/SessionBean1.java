@@ -26,9 +26,17 @@ import an1.persistence.ServicerefugeJpaController; //import com.sun.rave.web.ui.
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
+import javax.faces.event.ActionEvent;
+import javax.faces.event.ActionListener;
+import javax.faces.event.ValueChangeEvent;
+import javax.faces.model.SelectItem;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * <p>
@@ -50,7 +58,14 @@ public class SessionBean1 {
     private Boolean retourVersMembre=false;
     private Ecritures ecritureEnCours;
     private CodesEcrituresJpaController codesEcrituresJpaController;
-    
+    private String[] selectedCheckboxAffichage={"Demande","Option","Ferme","AcomptePayé","Payé"};
+    private static final SelectItem[] checkBoxAffichage = new SelectItem[]{
+        new SelectItem(Reservations.StatutReservation.Demande),
+        new SelectItem(Reservations.StatutReservation.Option),
+        new SelectItem(Reservations.StatutReservation.Ferme),
+        new SelectItem(Reservations.StatutReservation.AcomptePayé),
+        new SelectItem(Reservations.StatutReservation.Payé)};
+	
 	public Membres getMembreLoggé() {
 		return MembreLoggé;
 	}
@@ -63,6 +78,18 @@ public class SessionBean1 {
 		return Connecté;
 	}
 
+    public void voirActionListener(ActionEvent event) {
+    	 setMembreEnCours((Membres) event.getComponent().getAttributes().get("membre"));
+    	 
+    	 System.out.println("Membre"+membreEnCours.getNom());
+    }
+	public String voirMembre() {
+    	 
+     	return "listemembres";
+    }
+	public void statusChanged(ValueChangeEvent vce) {
+		System.out.println("statut changed");
+	}
 	public String getMembreEnCoursString() {
 		if (membreEnCours == null)
 			return "pas de membre en cours";
@@ -188,6 +215,7 @@ public class SessionBean1 {
 			setCodesEcrituresJpaController(new CodesEcrituresJpaController());
 			
 			litTableMembres();
+			
 			calendrier1 = new CalendrierUtil(new Date(),
 					getServiceRefugeJpaController(),
 					getReservationsJPAControler());
@@ -454,6 +482,18 @@ public class SessionBean1 {
 
 	public CodesEcrituresJpaController getCodesEcrituresJpaController() {
 		return codesEcrituresJpaController;
+	}
+
+	public SelectItem[] getCheckBoxAffichage() {
+		return checkBoxAffichage;
+	}
+
+	public void setSelectedCheckboxAffichage(String[] selectedCheckboxAffichage) {
+		this.selectedCheckboxAffichage = selectedCheckboxAffichage;
+	}
+
+	public String[] getSelectedCheckboxAffichage() {
+		return selectedCheckboxAffichage;
 	}
 
 }

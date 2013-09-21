@@ -107,7 +107,7 @@ public class CalendrierUtil {
         refresh();
     }
 
-    public String getHTML() {
+    public String getHTML(String[] selectedItems) {
         StringBuffer html = new StringBuffer();
 
 
@@ -150,11 +150,11 @@ public class CalendrierUtil {
                                 html.append("&nbsp");
                             }
                             int nbLits=nombrePersonnesService;
-                            if (nbLits>0 || jour.getReservations().size()>0) {
+                            if (nbLits>0 || jour.getReservations(selectedItems).size()>0) {
                                 html.append("<img onClick=\"javascript:document.getElementById('form1:valeurMois').value='"+mois+"';document.getElementById('form1:valeurJour').value='"+indexJour+"';document.forms['form1'].submit();\" src=\"./resources/lit.png\"> ");
                                 
-                                 for (int i=0;i<jour.getReservations().size();i++) {
-                                   nbLits+=jour.getReservations().get(i).nombrePersonnes();
+                                 for (int i=0;i<jour.getReservations(selectedItems).size();i++) {
+                                   nbLits+=jour.getReservations(selectedItems).get(i).nombrePersonnes();
                                 }
                                 
                                 html.append(nbLits);
@@ -212,8 +212,8 @@ public class CalendrierUtil {
             return servicerefugeJpaController.getServiceRefuge(dateJour);
         }
 
-        public List<Reservations>getReservations() {
-            return reservationsJpaController.getReservations(dateJour);
+        public List<Reservations>getReservations(String[] selectedItems) {
+            return reservationsJpaController.getReservations(dateJour,selectedItems);
         }
         /**
          * @return the nom

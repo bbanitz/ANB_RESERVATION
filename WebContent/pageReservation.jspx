@@ -71,6 +71,31 @@
                                 <td align="center">
                                     <ice:inputText id="inEnfantsGratuits" value="#{sessionBean1.reservationEnCours.nombreEnfantsGratuits}"/>
                                 </td>
+                            
+                            
+                            </tr>
+                            <tr>
+                            	<th>chambres</th>
+                            	<td align="center">
+                            		<h:outputText value=" 1 "/>
+                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre1}"/>
+                            		<h:outputText value=" 2 "/>
+                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre2}"/>
+                            		<h:outputText value=" 3 "/>
+                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre3}"/>
+                            		<h:outputText value=" 4 "/>
+                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre4}"/>
+                            		<h:outputText value=" 5 "/>
+                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre5}"/>
+                            		<h:outputText value=" 6 "/>
+                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre6}"/>
+                            		<h:outputText value=" 7 "/>
+                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre7}"/>
+                            		<h:outputText value=" 8 "/>
+                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre8}"/>
+                            		<h:outputText value=" 9 "/>
+                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre9}"/>
+                            	</td>
                             </tr>
                         </table>
                     </div>

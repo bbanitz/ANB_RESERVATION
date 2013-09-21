@@ -18,14 +18,11 @@
                     <ice:panelLayout id="panelLayoutMenu" style="width:100%; height:20px;">
                         <ice:menuBar id="menuBar1" style="position: relative; left: 10px; top: 0px;">
                             <ice:menuItem action="#{calendrier.menuDeconnection_action}" id="menuDeconnection" value="Déconnection"/>
-                            <ice:menuItem action="#{calendrier.menuListeMembres_action}" id="listeMembres" value="liste membres"/>
+                            <ice:menuItem action="#{calendrier.menuListeMembres_action}" id="listeMembres" value="liste contacts"/>
                             
                         </ice:menuBar>
-                        <ice:selectManyCheckbox>                        	
-                        	<f:selectItem itemLabel="options"/>
-                        	<f:selectItem itemLabel="fermes"/>
-                        	<f:selectItem itemLabel="acomptes payés"/>
-                        	<f:selectItem itemLabel="payés"/>
+                        <ice:selectManyCheckbox  partialSubmit="true" value="#{sessionBean1.selectedCheckboxAffichage}" valueChangeListener="#{sessionBean1.statusChanged}">                        	
+        					<f:selectItems id="selectManyCheckbox1selectItems" value="#{sessionBean1.checkBoxAffichage}"/>
                         </ice:selectManyCheckbox>
                     </ice:panelLayout>
                     <ice:inputText id="valeurJour" value="#{calendrier.valeurJour}" visible="false"/>
@@ -131,13 +128,29 @@
                                             <ice:outputText id="reservout13" value="Non AN"/>
                                         </f:facet>
                                     </ice:column>
-                                    <ice:column id="reservcolumn6">
+                                    <ice:column >
                                         <ice:outputText id="reservout14" value="Adultes : #{rows['nombreAdultesGratuits']}"/>
                                         <ice:outputText id="reservout15" value="Enfants : #{rows['nombreEnfantsGratuits']}"/>
                                         <f:facet name="header">
                                             <ice:outputText id="reservout16" value="Gratuits"/>
                                         </f:facet>
                                     </ice:column>
+                                    <ice:column >
+                                       
+                                        <h:outputText value="#{rows.listeChambres}"/>
+                                                                  
+                                        <f:facet name="header">
+                                            <ice:outputText  value="Chambres"/>
+                                        </f:facet>
+                                    </ice:column>
+                                    <ice:column >
+                                       
+                                        <h:commandButton value="voir membre" actionListener="#{sessionBean1.voirActionListener}"  action="#{sessionBean1.voirMembre}" >
+                                          <f:attribute name="membre" value="#{rows.membre}"></f:attribute>
+                                        </h:commandButton>
+                                                                  
+                                    </ice:column>
+
                                 </ice:dataTable>
 
                             </ice:panelGroup>

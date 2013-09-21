@@ -95,11 +95,11 @@ public class Calendrier {
     public String getHtml() {
     	if (valeurJour!="" && valeurMois!=""){
     		UnJour jourCourant=getSessionBean1().getCalendrier1().getListeMois().get(Integer.parseInt(valeurMois)).getListeJours().get(Integer.parseInt(valeurJour)-1);
-    		getSessionBean1().getCalendrier1().setReservationsEnCours(jourCourant.getReservations());
+    		getSessionBean1().getCalendrier1().setReservationsEnCours(jourCourant.getReservations(sessionBean1.getSelectedCheckboxAffichage()));
     		getSessionBean1().getCalendrier1().setServiceRefugeEnCours(jourCourant.getServiceRefuge());
     	}
     	
-        return getSessionBean1().getCalendrier1().getHTML();
+        return getSessionBean1().getCalendrier1().getHTML(sessionBean1.getSelectedCheckboxAffichage());
     }
 
 

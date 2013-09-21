@@ -54,6 +54,11 @@
                     <ice:panelDivider id="panelDivider1" style="height: 800px; left: 0px; top: 30px; position:relative; width: 100%">
                         <f:facet name="first">
                             <ice:panelGroup id="panelGroup1">
+                                 <ice:commandButton action="#{PageListeMembres.btNouveauMembre_action}" binding="#{PageListeMembres.btNouveauMembre}"
+                                                id="btNouveauMembre"
+                                                style="font-family: Arial,Helvetica,sans-serif; font-size: 18px; font-style: normal; font-weight: bold;" value="Nouveau contact"/>
+            
+                                <br/>
                                 <ice:outputText value="Recherche :" style="color: #FFFF00; font-size: 12px; font-family: Verdana, Arial, Sans-Serif; font-weight: bold"></ice:outputText><ice:inputText  id="inRecherche"  value="#{PageListeMembres.recherche}" autocomplete="true" valueChangeListener="#{PageListeMembres.rechercheChangeAction}" partialSubmit="true"></ice:inputText>
                                 <ice:dataPaginator displayedRowsCountVar="10" fastStep="3" firstRowIndexVar="0" for="dataTable1" id="dataPaginator1"
                                     paginator="true" paginatorMaxPages="5" rowsCountVar="rowsCount" style="left: 38; top:0; position: relative; height: 24px;">
@@ -214,7 +219,28 @@
                                     <ice:panelTab id="panelTab3" label="Service refuge">
                                         <ice:panelLayout id="panelLayout3" style="height: 360px; right: 0px; top: 0px; position: relative; width: 552px">
                                             <ice:outputText id="outputText15" value="#{sessionBean1.membreEnCours.nom}"/>
-                                            <ice:dataTable id="dataTable1" value="#{sessionBean1.servicesRefugeEnCours}" var="rows">
+                                    <ice:dataPaginator displayedRowsCountVar="5" fastStep="3" firstRowIndexVar="0" for="serviceRefugeTable" id="dataPaginatorserviceRefuge"
+                                    paginator="true" paginatorMaxPages="5" rowsCountVar="rowsCount" style="left: 38; top:0; position: relative; height: 24px;">
+                                    <f:facet name="first">
+                                        <ice:graphicImage style="border:none;" title="First Page" url="./xmlhttp/css/xp/css-images/arrow-first.gif"/>
+                                    </f:facet>
+                                    <f:facet name="last">
+                                        <ice:graphicImage style="border:none;" title="Last Page" url="./xmlhttp/css/xp/css-images/arrow-last.gif"/>
+                                    </f:facet>
+                                    <f:facet name="previous">
+                                        <ice:graphicImage style="border:none;" title="Previous Page" url="./xmlhttp/css/xp/css-images/arrow-previous.gif"/>
+                                    </f:facet>
+                                    <f:facet name="next">
+                                        <ice:graphicImage style="border:none;" title="Next Page" url="./xmlhttp/css/xp/css-images/arrow-next.gif"/>
+                                    </f:facet>
+                                    <f:facet name="fastforward">
+                                        <ice:graphicImage style="border:none;" title="Fast Forward" url="./xmlhttp/css/xp/css-images/arrow-ff.gif"/>
+                                    </f:facet>
+                                    <f:facet name="fastrewind">
+                                        <ice:graphicImage style="border:none;" title="Fast Backwards" url="./xmlhttp/css/xp/css-images/arrow-fr.gif"/>
+                                    </f:facet>
+                                </ice:dataPaginator>
+                                <ice:dataTable id="serviceRefugeTable" value="#{sessionBean1.servicesRefugeEnCours}" var="rows" rows="7">
                                                 <ice:column id="column1">
                                                     <ice:outputText converter="#{PageListeMembres.sqlDateConverter1}" id="outputText1" value="#{rows['dateDebut']}"/>
                                                     <f:facet name="header">
@@ -254,7 +280,28 @@
                                     </ice:panelTab>
                                     <ice:panelTab id="panelTab4" label="Réservations">
                                         <ice:panelLayout id="panelLayout4" style="height: 360px; right: 0px; top: 0px; position: relative; width: 552px">
-                                            <ice:dataTable id="dataTableReservation" value="#{sessionBean1.reservationsMembreEnCours}" var="rows">
+                                     <ice:dataPaginator displayedRowsCountVar="10" fastStep="3" firstRowIndexVar="0" for="dataTableReservation" id="dataPaginatorReservation"
+                                    paginator="true" paginatorMaxPages="5" rowsCountVar="rowsCount" style="left: 38; top:0; position: relative; height: 24px;">
+                                    <f:facet name="first">
+                                        <ice:graphicImage style="border:none;" title="First Page" url="./xmlhttp/css/xp/css-images/arrow-first.gif"/>
+                                    </f:facet>
+                                    <f:facet name="last">
+                                        <ice:graphicImage style="border:none;" title="Last Page" url="./xmlhttp/css/xp/css-images/arrow-last.gif"/>
+                                    </f:facet>
+                                    <f:facet name="previous">
+                                        <ice:graphicImage style="border:none;" title="Previous Page" url="./xmlhttp/css/xp/css-images/arrow-previous.gif"/>
+                                    </f:facet>
+                                    <f:facet name="next">
+                                        <ice:graphicImage style="border:none;" title="Next Page" url="./xmlhttp/css/xp/css-images/arrow-next.gif"/>
+                                    </f:facet>
+                                    <f:facet name="fastforward">
+                                        <ice:graphicImage style="border:none;" title="Fast Forward" url="./xmlhttp/css/xp/css-images/arrow-ff.gif"/>
+                                    </f:facet>
+                                    <f:facet name="fastrewind">
+                                        <ice:graphicImage style="border:none;" title="Fast Backwards" url="./xmlhttp/css/xp/css-images/arrow-fr.gif"/>
+                                    </f:facet>
+                                </ice:dataPaginator>
+                                <ice:dataTable id="dataTableReservation" value="#{sessionBean1.reservationsMembreEnCours}" var="rows" rows="3">
                                                 <ice:column id="reservcolumn1">
                                                     <ice:outputText converter="#{PageListeMembres.sqlDateConverter1}" id="reservoutputText1" value="#{rows['dateDebut']}"/>
                                                     <f:facet name="header">
@@ -296,6 +343,13 @@
                                                         <ice:outputText id="reservout16" value="Gratuits"/>
                                                     </f:facet>
                                                 </ice:column>
+ 												<ice:column>
+													<ice:outputText 
+														value="#{rows.listeChambres}" />
+													<f:facet name="header">
+														<ice:outputText value="Chambres" />
+													</f:facet>
+												</ice:column>
                                                 <ice:column id="reservcolumn7">
                                                     <ice:outputText id="reservout17" value="#{rows['statut']}"/>
                                                     
@@ -316,7 +370,7 @@
                                                     </td>
                                                     <td align="center" style="width:33%">
                                                         <ice:commandButton action="#{PageListeMembres.btEffaceReservation_action}" id="btEffaceReservation"
-                                                            style="font-family: Arial,Helvetica,sans-serif; font-size: 18px; font-style: normal; font-weight: bold;" value="Efface"/>
+                                                            style="font-family: Arial,Helvetica,sans-serif; font-size: 18px; font-style: normal; font-weight: bold;" value="Efface" />
                                                     </td>
                                                 </tr>
                                             </table>
@@ -388,17 +442,14 @@
                                     <tr>
                                         <td align="center" style="width:33%">
                                             <ice:commandButton action="#{PageListeMembres.btEdit_action}" binding="#{PageListeMembres.btEdit}" id="btEdit"
-                                                style="font-family: Arial,Helvetica,sans-serif; font-size: 18px; font-style: normal; font-weight: bold;" value="Modifie membre"/>
+                                                style="font-family: Arial,Helvetica,sans-serif; font-size: 18px; font-style: normal; font-weight: bold;" value="Modifie contact"/>
                                         </td>
                                         <td align="center" style="width:33%">
                                             <ice:commandButton action="#{PageListeMembres.btEffaceMembre_action}" binding="#{PageListeMembres.btEffaceMembre}"
                                                 id="btEffaceMembre"
-                                                style="font-family: Arial,Helvetica,sans-serif; font-size: 18px; font-style: normal; font-weight: bold;" value="Efface membre"/>
+                                                style="font-family: Arial,Helvetica,sans-serif; font-size: 18px; font-style: normal; font-weight: bold;" value="Efface contact"/>
                                         </td>
                                         <td align="center" style="width:33%">
-                                            <ice:commandButton action="#{PageListeMembres.btNouveauMembre_action}" binding="#{PageListeMembres.btNouveauMembre}"
-                                                id="btNouveauMembre"
-                                                style="font-family: Arial,Helvetica,sans-serif; font-size: 18px; font-style: normal; font-weight: bold;" value="Nouveau membre"/>
                                         </td>
                                     </tr>
                                 </table>
