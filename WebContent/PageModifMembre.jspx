@@ -75,10 +75,10 @@
                                             
                                 </h:selectOneMenu>
                                 <h:selectOneMenu id="groupeUser" value="#{sessionBean1.membreEnCours.groupeUtilisateur}" rendered="#{sessionBean1.membreLoggé.administrateur}">
-                                            <f:selectItem itemLabel="Administrateur" itemValue="Administrateur" />
-                                            <f:selectItem itemLabel="Membre Section" itemValue="MembreSection" />
                                             <f:selectItem itemLabel="Invité" itemValue="Invite" />
-                                </h:selectOneMenu>
+                                            <f:selectItem itemLabel="Membre Section" itemValue="MembreSection" />
+                                            <f:selectItem itemLabel="Administrateur" itemValue="Administrateur" />
+                                 </h:selectOneMenu>
                             </ice:panelLayout>
                         </ice:panelTab>
                         <ice:panelTab id="tabFamille" label="Famille">

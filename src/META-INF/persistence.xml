@@ -14,8 +14,8 @@
 		<properties>
 			<property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306/anb"/>
 			<property name="eclipselink.jdbc.user" value="root"/>
-			<property name="eclipselink.jdbc.password" value="bbefinkmatt"/>
 			<property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+			<property name="eclipselink.jdbc.password" value="finkmatt_5775"/>
 		</properties>
 	</persistence-unit>
 </persistence>
