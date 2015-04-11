@@ -171,6 +171,23 @@ public class ServicerefugeJpaController {
 
     }
 
+    public void effaceServicesRefugeMembre(Membres membre) {
+    	for (Servicerefuge service :getServiceRefuge(membre)) {
+    		 try {
+				destroy(service.getId());
+			} catch (NonexistentEntityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (RollbackFailureException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+    	}
+    }
+    
     @SuppressWarnings("unchecked")
 	public List<Servicerefuge> getServiceRefuge(Date jour){
         EntityManager em = getEntityManager();

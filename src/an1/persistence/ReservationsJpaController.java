@@ -247,6 +247,23 @@ public class ReservationsJpaController {
 
 	}
 
+	public void effaceReservationsMembre(Membres membre) {
+		 for (Reservations reservation:getReservationsMembre(membre)) {
+			 try {
+				destroy(reservation.getId());
+			} catch (NonexistentEntityException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (RollbackFailureException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		 }
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Reservations> LitReservationsStatut(String[] selectedValues) {
 		StringBuffer requete = new StringBuffer();

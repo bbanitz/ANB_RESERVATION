@@ -4,116 +4,140 @@
     Created on : 8 juin 2009, 09:00:22
     Author     : bbernard
 -->
-<jsp:root version="2.1" xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html" xmlns:ice="http://www.icesoft.com/icefaces/component" xmlns:jsp="http://java.sun.com/JSP/Page">
-    <jsp:directive.page contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"/>
-    <f:view>
-        <html id="outputHtml1">
-            <head id="outputHead1">
-                <ice:outputStyle href="./resources/stylesheet.css" id="outputStyle1"/>
-                <ice:outputStyle href="./xmlhttp/css/xp/xp.css" id="outputStyle2"/>
-            </head>
-            <body id="outputBody1" style="background-image: url(resources/vert_fonce_037.jpg); -rave-layout: grid">
-                <ice:form id="form1">
-                    <jsp:directive.include file="EnteteAN.jspf"/>
-                    <ice:outputText id="outputText1" style="color: yellow; font-family: Arial,Helvetica,sans-serif; font-size: 24px; width: 192px" value="#{sessionBean1.membreEnCours.nom}"/>
-                    <ice:outputText id="outputText2" style="color: yellow; font-family: Arial,Helvetica,sans-serif; font-size: 24px" value="#{sessionBean1.membreEnCours.prenom}"/>
-                    <table border="3" style="background-color:lime;" width="100%">
-                        <tr>
-                            <th align="center" style="font-size:18px;color:green">Du</th>
-                            <th align="center" style="font-size:18px;color:green">Au</th>
-                        </tr>
-                        <tr>
-                            <td align="center">
-                                <ice:selectInputDate  id="sdDateDebut"
-                                    style="background-color: lime; " binding="#{pageReservation.dateDebut}" value="#{sessionBean1.reservationEnCours.dateDebut}" valueChangeListener="#{pageReservation.sdDateDebut_processValueChange}"/>
-                            </td>
-                            <td align="center">
-                                <ice:selectInputDate converter="#{pageReservation.sqlDateConverter1}" id="sdDateFin"
-                                    style="background-color: lime; " binding="#{pageReservation.dateFin}" value="#{sessionBean1.reservationEnCours.dateFin}" />
-                            </td>
-                        </tr>
-                    </table>
-                    <div style="left: 0px; top: 20px; position: relative; width:100% ">
-                        <table border="3" style="height: 51px;background-color:lime;" width="100%">
-                            <tr>
-                                <th style="height: 17px"></th>
-                                <th>membres section</th>
-                                <th>membres autres sections</th>
-                                <th>non membres</th>
-                                <th>gratuits</th>
-                            </tr>
-                            <tr>
-                                <th>adultes</th>
-                                <td align="center">
-                                    <ice:inputText id="inAdultesSection" value="#{sessionBean1.reservationEnCours.nombreAdultesSection}"/>
-                                </td>
-                                <td align="center">
-                                    <ice:inputText id="inAdultesAutresSection" value="#{sessionBean1.reservationEnCours.nombreAdultesAutreSection}"/>
-                                </td>
-                                <td align="center">
-                                    <ice:inputText id="inAdultesNonMembre" value="#{sessionBean1.reservationEnCours.nombreAdultesNonAN}"/>
-                                </td>
-                                <td align="center">
-                                    <ice:inputText id="inAdultesGratuits" value="#{sessionBean1.reservationEnCours.nombreAdultesGratuits}"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <th>enfants</th>
-                                <td align="center">
-                                    <ice:inputText id="inEnfantsSection" value="#{sessionBean1.reservationEnCours.nombreEnfantsSection}"/>
-                                </td>
-                                <td align="center">
-                                    <ice:inputText id="inEnfantsAutreSection" value="#{sessionBean1.reservationEnCours.nombreEnfantsAutreSection}"/>
-                                </td>
-                                <td align="center">
-                                    <ice:inputText id="inEnfantsNonMembres" value="#{sessionBean1.reservationEnCours.nombreEnfantsNonAN}"/>
-                                </td>
-                                <td align="center">
-                                    <ice:inputText id="inEnfantsGratuits" value="#{sessionBean1.reservationEnCours.nombreEnfantsGratuits}"/>
-                                </td>
-                            
-                            
-                            </tr>
-                            <tr>
-                            	<th>chambres</th>
-                            	<td align="center">
-                            		<h:outputText value=" 1 "/>
-                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre1}"/>
-                            		<h:outputText value=" 2 "/>
-                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre2}"/>
-                            		<h:outputText value=" 3 "/>
-                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre3}"/>
-                            		<h:outputText value=" 4 "/>
-                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre4}"/>
-                            		<h:outputText value=" 5 "/>
-                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre5}"/>
-                            		<h:outputText value=" 6 "/>
-                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre6}"/>
-                            		<h:outputText value=" 7 "/>
-                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre7}"/>
-                            		<h:outputText value=" 8 "/>
-                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre8}"/>
-                            		<h:outputText value=" 9 "/>
-                            		<h:selectBooleanCheckbox value="#{sessionBean1.reservationEnCours.chambre9}"/>
-                            	</td>
-                            </tr>
-                        </table>
-                    </div>
-                    <br/>
-                    <table style="width:100%">
-                        <tr>
-                            <td align="center" style="width:50%">
-                                <ice:commandButton action="#{pageReservation.btValidation_action}" id="btValidation"
-                                    style="font-family: Arial,Helvetica,sans-serif; font-size: 18px; font-style: normal; font-weight: bold;" value="Validation"/>
-                            </td>
-                            <td align="center" style="width:50%">
-                                <ice:commandButton action="#{pageReservation.btAnnulation_action}" id="btAnnulation"
-                                    style="font-family: Arial,Helvetica,sans-serif; font-size: 18px; font-style: normal; font-weight: bold;" value="Annulation"/>
-                            </td>
-                        </tr>
-                    </table>
-                </ice:form>
-            </body>
-        </html>
-    </f:view>
+<jsp:root version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:jsp="http://java.sun.com/JSP/Page">
+	<jsp:directive.page contentType="text/html;charset=UTF-8"
+		pageEncoding="UTF-8" />
+	<f:view>
+		<html id="outputHtml1">
+<head id="outputHead1">
+<ice:outputStyle href="./resources/stylesheet.css" id="outputStyle1" />
+<ice:outputStyle href="./xmlhttp/css/xp/xp.css" id="outputStyle2" />
+</head>
+<body id="outputBody1"
+	style="background-image: url(resources/vert_fonce_037.jpg); -rave-layout: grid">
+	<ice:form id="form1">
+		<jsp:directive.include file="EnteteAN.jspf" />
+		<ice:outputText id="outputText1"
+			style="color: yellow; font-family: Arial,Helvetica,sans-serif; font-size: 24px; width: 192px"
+			value="#{sessionBean1.membreEnCours.nom}" />
+		<ice:outputText id="outputText2"
+			style="color: yellow; font-family: Arial,Helvetica,sans-serif; font-size: 24px"
+			value="#{sessionBean1.membreEnCours.prenom}" />
+		<table border="3" style="background-color: lime;" width="100%">
+			<tr>
+				<th align="center" style="font-size: 18px; color: green">Du</th>
+				<th align="center" style="font-size: 18px; color: green">Au</th>
+			</tr>
+			<tr>
+				<td align="center"><ice:selectInputDate id="sdDateDebut"
+						style="background-color: lime; "
+						binding="#{pageReservation.dateDebut}"
+						value="#{sessionBean1.reservationEnCours.dateDebut}"
+						valueChangeListener="#{pageReservation.sdDateDebut_processValueChange}" />
+				</td>
+				<td align="center"><ice:selectInputDate
+						converter="#{pageReservation.sqlDateConverter1}" id="sdDateFin"
+						style="background-color: lime; "
+						binding="#{pageReservation.dateFin}"
+						value="#{sessionBean1.reservationEnCours.dateFin}" />
+				</td>
+			</tr>
+		</table>
+		<div style="left: 0px; top: 20px; position: relative; width: 100%">
+			<table border="3" style="height: 51px; background-color: lime;"
+				width="100%">
+				<tr>
+					<th style="height: 17px"></th>
+					<th>membres section</th>
+					<th>membres autres sections</th>
+					<th>non membres</th>
+					<th>gratuits</th>
+				</tr>
+				<tr>
+					<th>adultes</th>
+					<td align="center"><ice:inputText id="inAdultesSection"
+							value="#{sessionBean1.reservationEnCours.nombreAdultesSection}" />
+					</td>
+					<td align="center"><ice:inputText id="inAdultesAutresSection"
+							value="#{sessionBean1.reservationEnCours.nombreAdultesAutreSection}" />
+					</td>
+					<td align="center"><ice:inputText id="inAdultesNonMembre"
+							value="#{sessionBean1.reservationEnCours.nombreAdultesNonAN}" />
+					</td>
+					<td align="center"><ice:inputText id="inAdultesGratuits"
+							value="#{sessionBean1.reservationEnCours.nombreAdultesGratuits}" />
+					</td>
+				</tr>
+				<tr>
+					<th>enfants</th>
+					<td align="center"><ice:inputText id="inEnfantsSection"
+							value="#{sessionBean1.reservationEnCours.nombreEnfantsSection}" />
+					</td>
+					<td align="center"><ice:inputText id="inEnfantsAutreSection"
+							value="#{sessionBean1.reservationEnCours.nombreEnfantsAutreSection}" />
+					</td>
+					<td align="center"><ice:inputText id="inEnfantsNonMembres"
+							value="#{sessionBean1.reservationEnCours.nombreEnfantsNonAN}" />
+					</td>
+					<td align="center"><ice:inputText id="inEnfantsGratuits"
+							value="#{sessionBean1.reservationEnCours.nombreEnfantsGratuits}" />
+					</td>
+
+
+				</tr>
+				<tr>
+					<th>chambres</th>
+					<td align="center"><h:outputText value=" 1 " /> <h:selectBooleanCheckbox
+							value="#{sessionBean1.reservationEnCours.chambre1}" /> <h:outputText
+							value=" 2 " /> <h:selectBooleanCheckbox
+							value="#{sessionBean1.reservationEnCours.chambre2}" /> <h:outputText
+							value=" 3 " /> <h:selectBooleanCheckbox
+							value="#{sessionBean1.reservationEnCours.chambre3}" /> <h:outputText
+							value=" 4 " /> <h:selectBooleanCheckbox
+							value="#{sessionBean1.reservationEnCours.chambre4}" /> <h:outputText
+							value=" 5 " /> <h:selectBooleanCheckbox
+							value="#{sessionBean1.reservationEnCours.chambre5}" /> <h:outputText
+							value=" 6 " /> <h:selectBooleanCheckbox
+							value="#{sessionBean1.reservationEnCours.chambre6}" /> <h:outputText
+							value=" 7 " /> <h:selectBooleanCheckbox
+							value="#{sessionBean1.reservationEnCours.chambre7}" /> <h:outputText
+							value=" 8 " /> <h:selectBooleanCheckbox
+							value="#{sessionBean1.reservationEnCours.chambre8}" /> <h:outputText
+							value=" 9 " /> <h:selectBooleanCheckbox
+							value="#{sessionBean1.reservationEnCours.chambre9}" />
+					</td>
+				</tr>
+				<tr>
+					<th>Etat</th>
+					<td align="center"><h:selectOneRadio value="#{sessionBean1.reservationEnCours.statut}">
+							<f:selectItems id="selectOneRadio1selectItems"
+								value="#{pageListeReservations.checkBox1}" />
+						</h:selectOneRadio>
+					</td>
+				</tr>
+
+			</table>
+		</div>
+		<br />
+		<table style="width: 100%">
+			<tr>
+				<td align="center" style="width: 50%"><ice:commandButton
+						action="#{pageReservation.btValidation_action}" id="btValidation"
+						style="font-family: Arial,Helvetica,sans-serif; font-size: 18px; font-style: normal; font-weight: bold;"
+						value="Validation" />
+				</td>
+				<td align="center" style="width: 50%"><ice:commandButton
+						action="#{pageReservation.btAnnulation_action}" id="btAnnulation"
+						style="font-family: Arial,Helvetica,sans-serif; font-size: 18px; font-style: normal; font-weight: bold;"
+						value="Annulation" />
+				</td>
+			</tr>
+		</table>
+	</ice:form>
+</body>
+		</html>
+	</f:view>
 </jsp:root>

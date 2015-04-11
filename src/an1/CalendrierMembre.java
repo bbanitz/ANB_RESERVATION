@@ -101,7 +101,7 @@ public class CalendrierMembre {
     		getSessionBean1().getCalendrier1().setServiceRefugeEnCours(jourCourant.getServiceRefuge());
     	}
     	
-        return getSessionBean1().getCalendrier1().getHTML(selection);
+        return getSessionBean1().getCalendrier1().getHTML(selection,true);
     }
 
 

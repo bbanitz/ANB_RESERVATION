@@ -325,6 +325,8 @@ public class SessionBean1 {
 	public void effaceMembreEnCours() {
 		if (membreEnCours != null) {
 			try {
+				reservationsJPAControler.effaceReservationsMembre(membreEnCours);
+				serviceRefugeJpaController.effaceServicesRefugeMembre(membreEnCours);
 				membresJpaController.destroy(membreEnCours.getCode());
 				membreEnCours = null;
 				litTableMembres();

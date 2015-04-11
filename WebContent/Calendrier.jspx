@@ -19,7 +19,7 @@
                         <ice:menuBar id="menuBar1" style="position: relative; left: 10px; top: 0px;">
                             <ice:menuItem action="#{calendrier.menuDeconnection_action}" id="menuDeconnection" value="Déconnection"/>
                             <ice:menuItem action="#{calendrier.menuListeMembres_action}" id="listeMembres" value="liste contacts"/>
-                            
+							<ice:menuItem action="#{calendrier.listeReservations_action}" id="listeReservations" value="Réservations"/>                            
                         </ice:menuBar>
                         <ice:selectManyCheckbox  partialSubmit="true" value="#{sessionBean1.selectedCheckboxAffichage}" valueChangeListener="#{sessionBean1.statusChanged}">                        	
         					<f:selectItems id="selectManyCheckbox1selectItems" value="#{sessionBean1.checkBoxAffichage}"/>

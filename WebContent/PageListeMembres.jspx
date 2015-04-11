@@ -59,7 +59,9 @@
                                                 style="font-family: Arial,Helvetica,sans-serif; font-size: 18px; font-style: normal; font-weight: bold;" value="Nouveau contact"/>
             
                                 <br/>
-                                <ice:outputText value="Recherche :" style="color: #FFFF00; font-size: 12px; font-family: Verdana, Arial, Sans-Serif; font-weight: bold"></ice:outputText><ice:inputText  id="inRecherche"  value="#{PageListeMembres.recherche}" autocomplete="true" valueChangeListener="#{PageListeMembres.rechercheChangeAction}" partialSubmit="true"></ice:inputText>
+                                <ice:outputText value="Recherche :" style="color: #FFFF00; font-size: 12px; font-family: Verdana, Arial, Sans-Serif; font-weight: bold"></ice:outputText>
+                                <ice:inputText  id="inRecherche"  value="#{PageListeMembres.recherche}" autocomplete="true" valueChangeListener="#{PageListeMembres.rechercheChangeAction}"  partialSubmit="true"></ice:inputText>
+                                <ice:commandButton value="rechercher" actionListener="#{PageListeMembres.lanceRecherche}"/>
                                 <ice:dataPaginator displayedRowsCountVar="10" fastStep="3" firstRowIndexVar="0" for="dataTable1" id="dataPaginator1"
                                     paginator="true" paginatorMaxPages="5" rowsCountVar="rowsCount" style="left: 38; top:0; position: relative; height: 24px;">
                                     <f:facet name="first">

@@ -99,7 +99,7 @@ public class Calendrier {
     		getSessionBean1().getCalendrier1().setServiceRefugeEnCours(jourCourant.getServiceRefuge());
     	}
     	
-        return getSessionBean1().getCalendrier1().getHTML(sessionBean1.getSelectedCheckboxAffichage());
+        return getSessionBean1().getCalendrier1().getHTML(sessionBean1.getSelectedCheckboxAffichage(),true);
     }
 
 
@@ -155,6 +155,11 @@ public class Calendrier {
         return null;
     }
 
+    public String listeReservations_action() {
+        //return null means stay on the same page
+        return "listeReservations";
+    }
+    
     public String menuItem3_action() {
         //return null means stay on the same page
         return null;

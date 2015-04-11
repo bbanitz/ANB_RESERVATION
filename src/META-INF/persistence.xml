@@ -2,13 +2,13 @@
 <persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
 	<persistence-unit name="anbJPA" transaction-type="RESOURCE_LOCAL">
 		<mapping-file>META-INF/eclipselink-orm.xml</mapping-file>
-		<class>an1.persistence.Servicerefuge</class>
-		<class>an1.persistence.Reservations</class>
-		<class>an1.persistence.MembresFamilles</class>
-		<class>an1.persistence.Membres</class>
-		<class>an1.persistence.GroupesUtilisateurs</class>
-		<class>an1.persistence.Ecritures</class>
 		<class>an1.persistence.Codesecriture</class>
+		<class>an1.persistence.Ecritures</class>
+		<class>an1.persistence.GroupesUtilisateurs</class>
+		<class>an1.persistence.Membres</class>
+		<class>an1.persistence.MembresFamilles</class>
+		<class>an1.persistence.Reservations</class>
+		<class>an1.persistence.Servicerefuge</class>
 		<class>an1.persistence.Typesmembre</class>
 		
 		<properties>

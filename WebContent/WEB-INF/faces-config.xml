@@ -110,6 +110,11 @@
 		<managed-bean-class>an1.ApplicationBean1</managed-bean-class>
 		<managed-bean-scope>application</managed-bean-scope>
 	</managed-bean>
+	<managed-bean>
+		<managed-bean-name>calendrierDrupal</managed-bean-name>
+		<managed-bean-class>an1.CalendrierDrupal</managed-bean-class>
+		<managed-bean-scope>request</managed-bean-scope>
+	</managed-bean>
     <navigation-rule>
         <from-view-id>/Login.jspx</from-view-id>
         <navigation-case>
@@ -329,6 +334,14 @@
     	<navigation-case>
     		<from-outcome>listemembres</from-outcome>
     		<to-view-id>/PageListeMembres.jspx</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+    	<display-name>Calendrier</display-name>
+    	<from-view-id>/Calendrier.jspx</from-view-id>
+    	<navigation-case>
+    		<from-outcome>listeReservations</from-outcome>
+    		<to-view-id>/PageListeReservations.jspx</to-view-id>
     	</navigation-case>
     </navigation-rule>
 

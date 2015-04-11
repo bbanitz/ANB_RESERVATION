@@ -39,6 +39,7 @@ import java.util.logging.Logger;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.DateTimeConverter;
+import javax.faces.event.ActionEvent;
 import javax.faces.event.ValueChangeEvent;
 
 /**
@@ -254,6 +255,7 @@ public class PageListeMembres implements Renderable {
         Membres membre = new Membres();
         try {
             getSessionBean1().getMembresJpaController().create(membre);
+            membre.setTypeMembre("HOTE");
             getSessionBean1().setMembreEnCours(membre);
         } catch (PreexistingEntityException ex) {
             Logger.getLogger(PageListeMembres.class.getName()).log(Level.SEVERE, null, ex);
@@ -419,6 +421,9 @@ public class PageListeMembres implements Renderable {
       sessionBean1.LitMembresParNom(nom);	
     }
     
+    public void lanceRecherche(ActionEvent event) {
+    	sessionBean1.LitMembresParNom(recherche);
+    }
     public String menuCalendrier_action() {
         //return null means stay on the same page
         return "calendrier";
